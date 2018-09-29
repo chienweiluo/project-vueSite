@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>btn_chevron left</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="創順官網" transform="translate(-1153.000000, -3852.000000)" fill="#FFFFFF">
+            <g id="加入我們" transform="translate(220.000000, 3802.000000)">
+                <path d="M945,74 C938.372583,74 933,68.627417 933,62 C933,55.372583 938.372583,50 945,50 C951.627417,50 957,55.372583 957,62 C957,68.627417 951.627417,74 945,74 Z M947.4,66.6 L942.8,62 L947.4,57.4 L946,56 L940,62 L946,68 L947.4,66.6 Z" id="btn_chevron-left"></path>
+            </g>
+        </g>
+    </g>
+</svg>

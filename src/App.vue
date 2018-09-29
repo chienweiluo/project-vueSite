@@ -1,0 +1,86 @@
+<template>
+  <div id="app">
+    <Header :isInFirstScreen="isInFirstScreen"/>
+    <FirstView :isInFirstScreen="isInFirstScreen"/>
+    <DescriptionCard :scrollY="scrollY" :descriptionsVisible="descriptionsVisible"/>
+    <ServiceFigure :serviceVisible="serviceVisible"/>
+    <QuilitySatellite :scrollY="scrollY" :quilityVisible="quilityVisible"/>
+    <SkillsFigures :skillsVisible="skillsVisible"/>
+    <JoinSlider :joinVisible="joinVisible"/>
+    <ContactMap :contactVisible="contactVisible"/>
+    <footer class="licence">{{LICENCE}}</footer>
+  </div>
+</template>
+
+<script>
+import Header from './components/Header'
+import FirstView from './components/FirstView'
+import DescriptionCard from './components/DescriptionCard'
+import ServiceFigure from './components/ServiceFigure'
+import QuilitySatellite from './components/QuilitySatellite'
+import SkillsFigures from './components/SkillsFigures'
+import JoinSlider from './components/JoinSlider'
+import ContactMap from './components/ContactMap'
+import {LICENCE} from './information'
+
+export default {
+  name: 'App',
+  components: {
+    Header, FirstView, DescriptionCard, ServiceFigure, SkillsFigures, JoinSlider, ContactMap, QuilitySatellite
+  },
+  data () {
+    return {
+      LICENCE,
+      firstViewHeight: document.documentElement.clientHeight,
+      isInFirstScreen: true,
+      scrollY: 0,
+      descriptionsVisible: false,
+      serviceVisible: false,
+      quilityVisible: false,
+      skillsVisible: false,
+      joinVisible: false,
+      contactVisible: false
+    }
+  },
+  mounted () {
+    window.addEventListener('scroll', () => {
+      this.scrollY = window.scrollY
+      this.isInFirstScreen = (window.scrollY < this.firstViewHeight)
+      this.descriptionsVisible = ((window.scrollY + this.firstViewHeight) > this.firstViewHeight + 100)
+      this.serviceVisible = (window.scrollY + this.firstViewHeight) > (document.getElementById('Service').offsetTop + 100)
+      this.quilityVisible = (window.scrollY + this.firstViewHeight) > (document.getElementById('Quility').offsetTop - 100)
+      this.skillsVisible = (window.scrollY + this.firstViewHeight) > (document.getElementById('Skills').offsetTop + 300)
+      this.joinVisible = (window.scrollY + this.firstViewHeight) > (document.getElementById('Join').offsetTop + 100)
+      this.contactVisible = (window.scrollY + this.firstViewHeight) > (document.getElementById('Contact').offsetTop + 100)
+    })
+  }
+}
+</script>
+
+<style lang="scss">
+@import './assets/styles/main.scss';
+@import './assets/styles/normalize.css';
+</style>
+
+<style lang="scss">
+#app {
+  height: 100%;
+  text-align: center;
+}
+
+.container {
+  width: 100%;
+  max-width: $pc-media;
+}
+
+.licence {
+  height: 50px;
+  line-height: 50px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: .5px;
+  background-color: #154466;
+  text-align: center;
+}
+</style>
