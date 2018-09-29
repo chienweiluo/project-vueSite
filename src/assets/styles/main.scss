@@ -1,0 +1,46 @@
+@import './vars.scss';
+@import './_mixins.scss';
+
+html, body {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #fff;
+  height: 100%;
+  width: 100%;
+}
+
+.visible {
+  visibility: visible;
+  transform: translate(0px, 0px);
+  opacity: 1;
+}
+
+.hidden-down {
+  visibility: hidden;
+  transform: translate(0, 60px);
+  opacity: 0;
+}
+
+.hidden-right {
+  visibility: hidden;
+  transform: translate(60px, 0);
+  opacity: 0;
+}
+
+.hidden-left {
+  visibility: hidden;
+  transform: translate(-60px, 0);
+  opacity: 0;
+}
+
+@include slideFade(Up, Small, .5s, .2s, (0, 10px));
+@include slideFade(Right, Far, .7s, .2s, (60px, 0));
+@include slideFade(Right, '',.3s, '', (-10px, 0));
+@include slideFade(Left, Delay, .3s, .2s, (10px, 0));
+@include slideFade(Left, DelayNormal, 1.2s, .5s, (10px, 0));
+@include slideFade(Left, DelaySuper, 1.5s, .8s, (10px, 0));
+
+@include floatAnimation(1, (0, -20px));
+@include floatAnimation(2, (-5px, -15px));
+@include floatAnimation(3, (10px, 15px));

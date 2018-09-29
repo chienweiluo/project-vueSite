@@ -1,0 +1,74 @@
+
+@import './vars.scss';
+
+// RWD
+@mixin pc-width() { // 1440 以上
+  @media all and (min-width: $pc-media) {
+    @content;
+  }
+}
+
+@mixin smallpc-width() { // 1024~ 1439
+  @media all and (min-width: $smallpc-media)  and (max-width: $pcs-media) {
+    @content;
+  }
+}
+
+@mixin pad-width() { // 768 ~ 1023
+  @media all and (min-width: $pad-media) and (max-width: $smallpcs-media) {
+    @content;
+  }
+}
+
+@mixin small-pad-width() { // 480 ~ 767
+  @media all and (min-width: $phone-media) and (max-width:$pads-media) {
+    @content;
+  }
+}
+
+@mixin phone-width() { // 480 以下
+  @media all and (max-width: $phones-media) {
+    @content;
+  }
+}
+
+@mixin smaller-than-pad() { // 768 以下
+  @media all and (max-width: $pads-media) {
+    @content;
+  }
+}
+
+@mixin smallphone-width() { // 320 以下
+  @media all and (max-width: $smallphone-media) {
+    @content;
+  }
+}
+
+@mixin toolong-aspect() { // for iPhoneX
+  @media all and (max-aspect-ratio: 1/2) {
+    @content;
+   }
+}
+
+// transition
+@mixin slideFade ($direction, $level, $duration, $delay, $offset) {
+  .slideFade#{$direction + $level}-enter-active {
+    transition: all $duration ease $delay;
+  }
+  .slideFade#{$direction + $level}-leave-active {
+    transition: all $duration ease $delay;
+  }
+  .slideFade#{$direction + $level}-enter, .slideFade#{$direction + $level}-leave-to {
+    transform: translate(#{$offset});
+    opacity: 0;
+  }
+}
+
+// animation
+@mixin floatAnimation ($index, $offset) {
+  @keyframes float#{$index} {
+    0% {transform: translate(0, 0);}
+    50% {transform: translate($offset);}
+    100% {transform: translate(0, 0);}
+  }
+}
